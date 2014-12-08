@@ -23,7 +23,7 @@ class CreatePartyTable extends Migration {
         $table->integer('year');
         $table->string('location');
         $table->integer('number_of_guests');
-        #$table->integer('user_id')->unsigned();->nullable();
+        $table->integer('user_id')->unsigned();
         $table->foreign('user_id')->references('id')->on('users');
         
 

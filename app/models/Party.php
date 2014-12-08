@@ -12,6 +12,19 @@ class Party extends Eloquent {
      */
     protected $table = 'party';
    
+       // Party __has_many__ Guests
+      public function users()
+    {
+        return $this->belongsTo('User');
 
+    
     }
 
+    public function guests()
+    {
+        return $this->hasMany('Guest');
+    }
+
+}
+
+    

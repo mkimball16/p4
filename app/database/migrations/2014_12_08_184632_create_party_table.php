@@ -5,12 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePartyTable extends Migration {
 
-/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
+		public function up()
 	{
 		Schema::create('party', function($table) {
 
@@ -28,10 +23,18 @@ class CreatePartyTable extends Migration {
         $table->integer('year');
         $table->string('location');
         $table->integer('number_of_guests');
+        #$table->integer('user_id')->unsigned();->nullable();
+        $table->foreign('user_id')->references('id')->on('users');
+        
 
 
 		});
 	}
+
+	public function user()
+    {
+        return $this->belongsTo('User');
+    }
 
 	/**
 	 * Reverse the migrations.

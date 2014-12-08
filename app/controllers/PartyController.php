@@ -16,19 +16,20 @@ class PartyController extends \BaseController {
 
 
 	/**
-	* Display all events
+	* Display all parties
 	* @return View
 	*/
 	public function getIndex() {
 
 		return View::make('party');
+
 		}
 		
 
 
 
 	/**
-	* Show the "Add an event form"
+	* Show the "Add a party form"
 	* @return View
 	*/
 	public function getCreate() {
@@ -39,7 +40,7 @@ class PartyController extends \BaseController {
 
 
 	/**
-	* Process the "Add an event form"
+	* Process the "Add a party form"
 	* @return Redirect
 	*/
 	public function postCreate() {
@@ -69,7 +70,7 @@ class PartyController extends \BaseController {
 		}
 
 		$party = new Party;
-		#$event->fill(Input::all());
+		#$party->fill(Input::all());
 		$party->name_of_event    = Input::get('name_of_event');
 		$party->type_of_event    = Input::get('type_of_event');
 		$party->month    = Input::get('month');
@@ -77,7 +78,7 @@ class PartyController extends \BaseController {
 		$party->year    = Input::get('year');
 		$party->location    = Input::get('location');
 		$party->number_of_guests   = Input::get('number_of_guests');
-		
+		$party->user_id  = Auth::user()->id;
 		$party->save();
 
 		return Redirect::action('PartyController@getIndex')->with('flash_message','Your event has been added.');
@@ -93,7 +94,7 @@ class PartyController extends \BaseController {
 	public function getEdit($id) {
 
 		try {
-		    $party    = Party::findOrFail($id);
+		    $party  = Party::findOrFail($id);
 		    $guests = Guest::getIdNamePair();
 		}
 		catch(exception $e) {
@@ -113,7 +114,7 @@ class PartyController extends \BaseController {
 	public function postEdit() {
 
 		try {
-	        $party = Event::findOrFail(Input::get('id'));
+	        $party = Party::findOrFail(Input::get('id'));
 	    }
 	    catch(exception $e) {
 	        return Redirect::to('/list')->with('flash_message', 'Event not found');

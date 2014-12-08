@@ -23,8 +23,8 @@
     {{ Form::password('password') }}
     <small>Min 6 characters</small>
 
-    {{ Form::label('address')}}
-    {{ Form::text('address')}}
+    {{ Form::label('address') }}
+    {{ Form::text('address') }}
 
     {{ Form::submit('Submit') }}
 

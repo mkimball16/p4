@@ -14,7 +14,15 @@
 		{{ Form::text('name_of_event'); }}
 
 		{{ Form::label('type_of_event','Type of Event') }}
-		{{ Form::text('type_of_event'); }}
+		{{ Form::radio('type_of_event', 'Engagement Party') }}Engagement Party
+		{{ Form::radio('type_of_event', 'Rehearsal Dinner') }}Rehearsal Dinner
+		{{ Form::radio('type_of_event', 'Wedding') }}Wedding
+		{{ Form::radio('type_of_event', 'Anniversary Party') }}Anniversary Party
+		{{ Form::radio('type_of_event', 'Birthday Party') }}Birthday Party
+		{{ Form::radio('type_of_event', 'Bar Mitzvah/Bat Mitzvah') }}Bar Mitzvah/Bat Mitzvah
+		{{ Form::radio('type_of_event', 'Retirement Party') }}Retirement Party
+		{{ Form::radio('type_of_event', 'Corporate Function') }}Corporate Function
+
 
 		{{ Form::label('date','Date') }}
 		{{ Form::selectMonth('month'); }}

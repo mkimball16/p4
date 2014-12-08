@@ -12,6 +12,7 @@ class UserController extends BaseController {
     }
 
 
+
     /**
 	* Show the new user signup form
 	* @return View
@@ -30,8 +31,10 @@ class UserController extends BaseController {
 
 		# Step 1) Define the rules
 		$rules = array(
+			'name' => 'required',
 			'email' => 'required|email|unique:users,email',
-			'password' => 'required|min:6'
+			'password' => 'required|min:6',
+			'address' => 'required'
 		);
 
 		# Step 2)

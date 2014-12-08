@@ -29,6 +29,11 @@ class CreateUsersTable extends Migration {
 		});
 	}
 
+	public function party()
+    {
+        return $this->hasMany('Party');
+    }
+
 	/**
 	 * Reverse the migrations.
 	 *

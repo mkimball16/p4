@@ -11,7 +11,15 @@ class Guest extends Eloquent {
      * @var string
      */
     protected $table = 'guests';
+
+       
+    // Guest __belongs_to__ Party
+    public function party()
+    {
+        return $this->belongsTo('Party');
+    }
+}
    
 
-    }
+ 
 

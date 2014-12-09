@@ -21,8 +21,10 @@ class PartyController extends \BaseController {
 	*/
 	public function getIndex() {
 
-		return View::make('party');
+		$party = Party::where('user_id', '=', '$user')->get();
 
+		return View::make('party')
+			->with('party', $party);
 		}
 		
 

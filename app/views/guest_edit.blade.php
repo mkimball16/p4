@@ -11,23 +11,27 @@
 @section('content')
 
 	<h1>Edit</h1>
-	<h2>{{{ $book['title'] }}}</h2>
+	<h2>{{{ $guest['name'] }}}</h2>
 
-	{{ Form::open(array('url' => '/book/edit')) }}
+	{{ Form::open(array('url' => '/guest_edit')) }}
 
-		{{ Form::hidden('id',$book['id']); }}
+		{{ Form::hidden('id',$guest['id']); }}
 
-		{{ Form::label('title','Title') }}
-		{{ Form::text('title',$book['title']); }}
+		{{ Form::label('name','Name') }}
+        {{ Form::text('name'); }}
 
-		{{ Form::label('published','Published Year (YYYY)') }}
-		{{ Form::text('published',$book['published']); }}
+        {{ Form::label('address', 'Address') }}
+        {{ Form::text('address'); }}
 
-		{{ Form::label('cover','Cover Image URL') }}
-		{{ Form::text('cover',$book['cover']); }}
+        {{ Form::label('email','Email') }}
+        {{ Form::text('email'); }}
 
-		{{ Form::label('purchase_link','Purchase Link URL') }}
-		{{ Form::text('purchase_link',$book['purchase_link']); }}
+         {{ Form::label('event','Event') }}
+        {{ Form::text('event'); }}
+
+        {{Form::label ('rsvp', 'RSVP') }}
+        {{ Form::radio('rsvp','Yes') }}Yes
+        {{ Form::radio('rsvp','No') }}No
 
 		{{ Form::submit('Save'); }}
 

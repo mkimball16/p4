@@ -50,6 +50,8 @@ class UserController extends BaseController {
 		}
 
 		$user = new User;
+		$user->name = Input::get('name');
+		$user->address = Input::get('address');
 		$user->email    = Input::get('email');
 		$user->password = Hash::make(Input::get('password'));
 

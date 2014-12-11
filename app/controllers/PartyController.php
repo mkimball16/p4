@@ -21,10 +21,7 @@ class PartyController extends \BaseController {
 	*/
 	public function getIndex() {
 
-		$party = Party::where('user_id', '=', '$user')->get();
-
-		return View::make('party')
-			->with('party', $party);
+		return View::make('party');
 		}
 		
 
@@ -88,24 +85,13 @@ class PartyController extends \BaseController {
 
 }
 
-
 	/**
 	* Show the "Edit an event form"
 	* @return View
 	*/
-	public function getEdit($id) {
+	public function getEdit($party_id) {
 
-		try {
-		    $party  = Party::findOrFail($id);
-		    $guests = Guest::getIdNamePair();
-		}
-		catch(exception $e) {
-		    return Redirect::to('/list')->with('flash_message', 'Event not found');
-		}
-
-    	return View::make('edit')
-    		->with('party', $party)
-    		->with('guests', $guests);
+    	return View::make('party_edit');
 
 	}
 
@@ -130,6 +116,24 @@ class PartyController extends \BaseController {
 
 	}
 
+/**
+	* Process party deletion
+	*
+	* @return Redirect
+	*/
+	public function postDelete() {
 
+		try {
+	        $party = Party::findOrFail(Input::get('id'));
+	    }
+	    catch(exception $e) {
+	        return Redirect::to('/party/')->with('flash_message', 'Could not delete party - not found.');
+	    }
+
+	    Party::destroy(Input::get('id'));
+
+	    return Redirect::to('/bopartyok/')->with('flash_message', 'party deleted.');
+
+	}
 
 }

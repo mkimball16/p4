@@ -1,5 +1,7 @@
 @extends('_master')
 
+
+
 @section('title')
 	Events
 @stop
@@ -7,31 +9,35 @@
 @section('content')
 
 	<h1>Events</h1>
-	<p> Need to list all users parties here with an option to edit party, view guests, and edit the guests.</p>
+	<p> Below is a list of all your events. You have the option to edit these event(s), delete the event(s), and view the guests.</p>
 
-		{{ $party = Party::all(); }}
+		
+<?php
 
-		@foreach($party as $party)
+$party = DB::table('party')->get();
+foreach ($party as $p)
+{
+    if($p->user_id == Auth::user()->id){ ?>
 
-			<section class='party'>
+    <h3><?php print_r($p->name_of_event); ?> </h3><p> 
+    <strong>Type of event:</strong> <?php print_r($p->type_of_event); ?> <br/>
+    <strong>Date of event:</strong> <?php print_r($p->month); ?>/<?php print_r($p->day); ?>/<?php print_r($p->year); ?><br/>
+    <strong>Location:</strong> <?php print_r($p->location); ?> <br/>
+    <strong>Number of guests:</strong> <?php print_r($p->number_of_guests); ?>
 
-				<h2>{{ $party['name_of_event'] }}</h2>
-				<p>
-					<strong>Date of event:</strong> {{ $party['month']}}/{{ $party['day']}}/{{ $party['year'] }} <br>
-					<strong>Type of event:</strong>  {{ $party['type_of_event'] }}<br>
-					<strong>Location:</strong>  {{ $party['location'] }}<br>
-					<strong>Number of guests:</strong>  {{ $party['number_of_guests'] }}<br>
+    <p><a href="party_edit/{party_id}">Edit event</a><br />
+    <a href="party_delete">Delete event </a><br />
+    <a href="guest">View guest list</a></p>
 
-				</p>
-				<p>
-					<a href='/party_edit'>Edit</a><br />
-					<a href='/guest_create'>Add guests</a><br />
-					<a href='/guest'>View guest list</a>
-				</p>
+<?php
+}
+}
 
-			</section>
-		@endforeach
 
+
+		
+		
+?>
 @stop
 
 

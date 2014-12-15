@@ -9,6 +9,8 @@
 	<h1>Add a new guest</h1>
 
 	{{ Form::open(array('url' => '/guest_create')) }}
+   
+
 
         {{ Form::label('name','Name') }}
         {{ Form::text('name'); }}

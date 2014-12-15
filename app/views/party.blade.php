@@ -25,9 +25,9 @@ foreach ($party as $p)
     <strong>Location:</strong> <?php print_r($p->location); ?> <br/>
     <strong>Number of guests:</strong> <?php print_r($p->number_of_guests); ?>
 
-    <p><a href="party_edit/{party_id}">Edit event</a><br />
-    <a href="party_delete">Delete event </a><br />
-    <a href="guest">View guest list</a></p>
+    <p><a href="{{ action('PartyController@getEdit', $p->id) }}">Edit event</a><br />
+    <a href="{{ action('PartyController@getDelete', $p->id) }}">Delete event </a><br />
+    <a href="{{ action('GuestController@getIndex', $p->id) }}">View guest list</a></p>
 
 <?php
 }

@@ -68,15 +68,13 @@ class GuestController extends \BaseController {
 
 		try {
 		    $guests    = Guest::findOrFail($id);
-		    $events = Event::getIdNamePair();
 		}
 		catch(exception $e) {
-		    return Redirect::to('/list')->with('flash_message', 'Guest not found');
+		    return Redirect::to('/guest')->with('flash_message', 'Guest not found');
 		}
 
-    	return View::make('edit')
-    		->with('guest', $guests)
-    		->with('event', $events);
+    	return View::make('guest_edit')->with('guest', $guests);
+  
 
 	}
 
@@ -90,7 +88,7 @@ class GuestController extends \BaseController {
 	        $guests = Guest::findOrFail(Input::get('id'));
 	    }
 	    catch(exception $e) {
-	        return Redirect::to('/list')->with('flash_message', 'Guest not found');
+	        return Redirect::to('/guest')->with('flash_message', 'Guest not found');
 	    }
 
 	    # http://laravel.com/docs/4.2/eloquent#mass-assignment
@@ -101,6 +99,37 @@ class GuestController extends \BaseController {
 
 	}
 
+
+/**
+	* Process guest deletion
+	*
+	* @return Redirect
+	*/
+	public function getDelete($id) {
+
+		$guest = Guest::findOrFail($id);
+
+		return View::make('guest_delete')->with('guest', $guest);
+
+
+	}
+
+	public function postDelete() {
+		/**$id = Input::get('party');
+		$party = Party::findOrFail($id);
+		$party->delete();**/
+
+		try {
+	        $guest = Guest::findOrFail(Input::get('id'));
+	    }
+	    catch(exception $e) {
+	        return Redirect::to('/guest')->with('flash_message', 'Could not delete guest - not found.');
+	    }
+
+	    Guest::destroy(Input::get('id'));
+
+		return Redirect::action('GuestController@getIndex')->with('flash_message','Your guest was deleted.');
+	}
 
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-
+Route::model('party', 'Party');
 /**
 * Index
 */
@@ -25,10 +25,11 @@ Route::get('/logout', ['before' => 'auth', 'uses' => 'UserController@getLogout']
 * (Explicit Routing)
 */
 Route::get('/party', 'PartyController@getIndex');
-Route::get('/party_edit/{party_id}', 'PartyController@getEdit');
+Route::get('/party_edit/{id}', 'PartyController@getEdit');
 Route::post('/party_edit', 'PartyController@postEdit');
 Route::get('/party_create', 'PartyController@getCreate');
 Route::post('/party_create', 'PartyController@postCreate');
+Route::get('/party_delete/{id}', 'PartyController@getDelete');
 Route::post('/party_delete', 'PartyController@postDelete');
 
 
@@ -37,10 +38,11 @@ Route::post('/party_delete', 'PartyController@postDelete');
 * (Explicit Routing)
 */
 Route::get('/guest', 'GuestController@getIndex');
-Route::get('/guest_edit/{party_id}', 'GuestController@getEdit');
+Route::get('/guest_edit/{id}', 'GuestController@getEdit');
 Route::post('/guest_edit', 'GuestController@postEdit');
 Route::get('/guest_create', 'GuestController@getCreate');
 Route::post('/guest_create', 'GuestController@postCreate');
+Route::get('/guest_delete/{id}', 'GuestController@getDelete');
 Route::post('/guest_delete', 'GuestController@postDelete');
 
 

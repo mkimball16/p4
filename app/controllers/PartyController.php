@@ -89,10 +89,10 @@ class PartyController extends \BaseController {
 	* Show the "Edit an event form"
 	* @return View
 	*/
-	public function getEdit($party_id) {
+	public function getEdit($id) {
 
-    	return View::make('party_edit');
-
+		$party = Party::findOrFail($id);
+    	return View::make('party_edit')->with('party', $party);
 	}
 
 	/**
@@ -100,16 +100,14 @@ class PartyController extends \BaseController {
 	* @return Redirect
 	*/
 	public function postEdit() {
-
 		try {
 	        $party = Party::findOrFail(Input::get('id'));
 	    }
 	    catch(exception $e) {
-	        return Redirect::to('/list')->with('flash_message', 'Event not found');
+	        return Redirect::to('/party')->with('flash_message', 'Event not found');
 	    }
 
-	    # http://laravel.com/docs/4.2/eloquent#mass-assignment
-	    $party->fill(Input::all());
+		$party->fill(Input::all());
 	    $party->save();
 
 	   	return Redirect::action('PartyController@getIndex')->with('flash_message','Your changes have been saved.');
@@ -121,19 +119,30 @@ class PartyController extends \BaseController {
 	*
 	* @return Redirect
 	*/
+	public function getDelete($id) {
+
+		$party = Party::findOrFail($id);
+
+		return View::make('party_delete')->with('party', $party);
+
+
+	}
+
 	public function postDelete() {
+		/**$id = Input::get('party');
+		$party = Party::findOrFail($id);
+		$party->delete();**/
 
 		try {
 	        $party = Party::findOrFail(Input::get('id'));
 	    }
 	    catch(exception $e) {
-	        return Redirect::to('/party/')->with('flash_message', 'Could not delete party - not found.');
+	        return Redirect::to('/party')->with('flash_message', 'Could not delete party - not found.');
 	    }
 
 	    Party::destroy(Input::get('id'));
 
-	    return Redirect::to('/bopartyok/')->with('flash_message', 'party deleted.');
-
+		return Redirect::action('PartyController@getIndex')->with('flash_message','Your party was deleted.');
 	}
 
 }

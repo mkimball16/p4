@@ -22,9 +22,9 @@
 		<ul>
 		@if(Auth::check())
 			<li><a href='/logout'>Log out {{ Auth::user()->email; }}</a></li>
-			<li><a href='/party'>Home</a></li>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/party'>View your events</a></li>
 			<li><a href='/party_create'>+ Add Event</a></li>
-			<li><a href='/guest_create'>+ Add Guest</a></li>
 		@else
 			<li><a href='/signup'>Sign up</a> or <a href='/login'>Log in</a></li>
 		@endif

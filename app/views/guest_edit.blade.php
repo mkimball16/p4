@@ -11,9 +11,10 @@
 @section('content')
 
 	<h1>Edit</h1>
-	<h2>{{{ $guest['name'] }}}</h2>
+	<h2><?php echo $guest['name'] ?></h2>
 
 	{{ Form::open(array('url' => '/guest_edit')) }}
+	{{ Form::hidden('party_id',$guest['party_id']); }}
 
 		{{ Form::hidden('id',$guest['id']); }}
 
@@ -33,7 +34,7 @@
         {{ Form::radio('rsvp','Yes') }}Yes
         {{ Form::radio('rsvp','No') }}No
 
-		{{ Form::submit('Save'); }}
+		{{ Form::submit('Add'); }}
 
 	{{ Form::close() }}
 

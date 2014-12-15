@@ -28,7 +28,7 @@ class CreateGuestsTable extends Migration {
         $table->string('rsvp');
 
 		});
-	}
+}
 
 	/**
 	 * Reverse the migrations.

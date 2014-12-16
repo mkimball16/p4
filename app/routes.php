@@ -40,7 +40,7 @@ Route::post('/party_delete', 'PartyController@postDelete');
 Route::get('/guest', 'GuestController@getIndex');
 Route::get('/guest_edit/{id}', 'GuestController@getEdit');
 Route::post('/guest_edit', 'GuestController@postEdit');
-Route::get('/guest_create', 'GuestController@getCreate');
+Route::get('/guest_create/{party_id}', 'GuestController@getCreate');
 Route::post('/guest_create', 'GuestController@postCreate');
 Route::get('/guest_delete/{id}', 'GuestController@getDelete');
 Route::post('/guest_delete', 'GuestController@postDelete');

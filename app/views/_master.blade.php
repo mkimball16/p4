@@ -34,7 +34,7 @@
 
 	<a href='/'><img class='logo' src='/images/banner.jpg' alt='Parties on Pennies Logo'></a>
 
-	<a href='https://github.com/susanBuck/foobooks'>View on Github</a>
+	
 
 	@yield('content')
 

@@ -22,10 +22,10 @@ class GuestController extends \BaseController {
 	* @return View
 	*/
 	public function getIndex() {
-
-		return View::make('guest');
-		}
-		
+    	
+    	return View::make('guest');
+	}
+  
 
 
 	/**

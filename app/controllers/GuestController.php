@@ -32,12 +32,12 @@ class GuestController extends \BaseController {
 	* Show the "Add a guest form"
 	* @return View
 	*/
-	public function getCreate() {
-
-
-    	return View::make('guest_create');
-
+	public function getCreate($id) {
+		$party = Party::findOrFail($id);
+    	return View::make('guest_create')->with('party', $party);
 	}
+
+    
 
 
 	/**
@@ -45,11 +45,12 @@ class GuestController extends \BaseController {
 	* @return Redirect
 	*/
 	public function postCreate() {
-
+		$party = Party::findOrFail(Input::get('id'));
 		# Instantiate the guest model
 		$guests = new Guest();
 
 		$guests->fill(Input::all());
+		$guests->party_id  =  $party->id;
 		$guests->save();
 
 		# Magic: Eloquent

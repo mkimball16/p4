@@ -37,10 +37,10 @@ Route::post('/party_delete', 'PartyController@postDelete');
 * Guests
 * (Explicit Routing)
 */
-Route::get('/guest', 'GuestController@getIndex');
+Route::get('/guest/{id}', 'GuestController@getIndex');
 Route::get('/guest_edit/{id}', 'GuestController@getEdit');
 Route::post('/guest_edit', 'GuestController@postEdit');
-Route::get('/guest_create/{party_id}', 'GuestController@getCreate');
+Route::get('/guest_create/{id}', 'GuestController@getCreate');
 Route::post('/guest_create', 'GuestController@postCreate');
 Route::get('/guest_delete/{id}', 'GuestController@getDelete');
 Route::post('/guest_delete', 'GuestController@postDelete');

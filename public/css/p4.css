@@ -1,15 +1,18 @@
 body {
 	padding:20px;
+	background: #E0EEE0; 
 }
 
 .logo {
-	width:500px;
+	width: 90%;
+	margin-right: 5%;
+	margin-left: 5%;
 	margin-bottom:20px;
 	display:block;
 }
 
 label,input {
-	display:block;
+	margin-left: 10px;
 	margin-top:10px;
 }
 
@@ -18,7 +21,7 @@ label,input {
 	position:absolute;
 	top:0;
 	left:0;
-	background-color:yellow;
+	background-color: #FFFFCC;
 	text-align:center;
 	padding:5px;
 }
@@ -35,21 +38,22 @@ nav ul li {
 
 a:link, a:visited, a:active, a:hover {
 	text-decoration:underline;
+	color: #33CC99;
 }
 
-.tags {
-	color:grey;
-	font-family:consolas;
-}
 
-.book {
-	border:1px solid #ccc;
+.party, .guest {
+	border:3px solid #ccc;
 	padding:10px;
 	padding-top:0px;
 	float:left;
 	width:300px;
 	margin-right:10px;
 	margin-bottom:10px;
-	height:375px;
+	height: 300px;
+	
 
 }
+
+
+

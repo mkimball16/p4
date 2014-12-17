@@ -8,14 +8,16 @@
 
 	<h1>Guests</h1>
 	<p> Below is a list of your guest for the party. You have the option to edit guest information and delete a guest.</p>
-
-		
+	
 <?php
+$party = DB::table('party')->get();
 
-$guests = DB::table('guests')->get();
-foreach ($guests as $g)
+$guest = DB::table('guests')->get();
+foreach ($guest as $g)
 {
-    #if($g->party_id == Auth::user()->id){ ?>
+    if($g->party_id == 15) 
+    { ?>
+    <div class="guest">	
 
     <h3><?php print_r($g->name); ?> </h3><p> 
     <strong>Address:</strong> <?php print_r($g->address); ?> <br/>
@@ -25,14 +27,13 @@ foreach ($guests as $g)
 
     <p><a href="{{ action('GuestController@getEdit', $g->id) }}">Edit guest</a><br />
     	<a href="{{ action('GuestController@getDelete', $g->id) }}"> Delete guest</a>
-
+</div>
 
 <?php
-#}
+}
 }
 ?>
 
-<a href='/guest_create'>+ Add Guest</a>
 
 @stop
 

@@ -17,14 +17,14 @@
     {{ Form::text('name') }}
 
     {{ Form::label('email') }}
-    {{ Form::text('email') }}
+    {{ Form::text('email') }} <br/>
 
     {{ Form::label('password') }}
     {{ Form::password('password') }}
     <small>Min 6 characters</small>
 
     {{ Form::label('address') }}
-    {{ Form::text('address') }}
+    {{ Form::text('address') }}<br/>
 
     {{ Form::submit('Submit') }}
 

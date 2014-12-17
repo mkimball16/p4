@@ -14,7 +14,6 @@
 	<h2><?php echo $guest['name'] ?></h2>
 
 	{{ Form::open(array('url' => '/guest_edit')) }}
-	{{ Form::hidden('party_id',$guest['party_id']); }}
 
 		{{ Form::hidden('id',$guest['id']); }}
 
@@ -22,17 +21,17 @@
         {{ Form::text('name'); }}
 
         {{ Form::label('address', 'Address') }}
-        {{ Form::text('address'); }}
+        {{ Form::text('address'); }} <br/>
 
         {{ Form::label('email','Email') }}
         {{ Form::text('email'); }}
 
          {{ Form::label('event','Event') }}
-        {{ Form::text('event'); }}
+        {{ Form::text('event'); }} <br/>
 
         {{Form::label ('rsvp', 'RSVP') }}
-        {{ Form::radio('rsvp','Yes') }}Yes
-        {{ Form::radio('rsvp','No') }}No
+        {{ Form::radio('rsvp','Yes') }}  Yes  
+        {{ Form::radio('rsvp','No') }}  No  <br/>
 
 		{{ Form::submit('Add'); }}
 

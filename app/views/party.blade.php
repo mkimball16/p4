@@ -9,7 +9,7 @@
 @section('content')
 
 	<h1>Events</h1>
-	<p> Below is a list of all your events. You have the option to edit these event(s), delete the event(s), and view the guests.</p>
+	<p> Below is a list of all your events. You have the option to edit these event(s), delete the event(s), add a guest, and view the guests.</p>
 
 
 <?php

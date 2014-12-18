@@ -17,7 +17,7 @@ $party = DB::table('party')->get();
 $guest = DB::table('guests')->get();
 foreach ($guest as $g)
 {
-    if($g->party_id == 19) 
+    if($g->party_id == $id) 
     { ?>
     <div class="guest">	
 

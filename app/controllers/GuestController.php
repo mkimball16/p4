@@ -21,9 +21,9 @@ class GuestController extends \BaseController {
 	* Display all guests
 	* @return View
 	*/
-	public function getIndex() {
+	public function getIndex($id) {
     	
-    	return View::make('guest');
+    	return View::make('guest')->with('id', $id);
 	}
   
 

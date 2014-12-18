@@ -14,14 +14,14 @@
 {{ Form::open(array('url' => '/signup')) }}
 
     {{ Form::label('name') }}
-    {{ Form::text('name') }}
+    {{ Form::text('name') }} <br />
 
     {{ Form::label('email') }}
     {{ Form::text('email') }} <br/>
 
     {{ Form::label('password') }}
     {{ Form::password('password') }}
-    <small>Min 6 characters</small>
+    <small>Min 6 characters</small><br />
 
     {{ Form::label('address') }}
     {{ Form::text('address') }}<br/>

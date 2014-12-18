@@ -10,12 +10,14 @@
 	<p> Below is a list of your guest for the party. You have the option to edit guest information and delete a guest.</p>
 	
 <?php
+
+
 $party = DB::table('party')->get();
 
 $guest = DB::table('guests')->get();
 foreach ($guest as $g)
 {
-    if($g->party_id == 15) 
+    if($g->party_id == 19) 
     { ?>
     <div class="guest">	
 

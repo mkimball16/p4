@@ -96,7 +96,7 @@ class GuestController extends \BaseController {
 	    $guests->fill(Input::all());
 	    $guests->save();
 
-	   	return Redirect::action('party')->with('flash_message','Your changes have been saved.');
+	   	return Redirect::to('party')->with('flash_message','Your changes have been saved.');
 
 	}
 
@@ -129,7 +129,7 @@ class GuestController extends \BaseController {
 
 	    Guest::destroy(Input::get('id'));
 
-		return Redirect::action('party')->with('flash_message','Your guest was deleted.');
+		return Redirect::to('party')->with('flash_message','Your guest was deleted.');
 	}
 
 

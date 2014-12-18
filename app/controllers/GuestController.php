@@ -56,7 +56,7 @@ class GuestController extends \BaseController {
 		# Magic: Eloquent
 		$guests->save();
 
-		return Redirect::action('GuestController@getIndex')->with('flash_message','Your guest has been added.');
+		return Redirect::to('party')->with('flash_message','Your guest has been added.');
 
 	}
 
